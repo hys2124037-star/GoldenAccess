@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoldenAccess — Abonnements premium 100% privés à prix Ariary</title>
+  <meta name="description" content="GoldenAccess : ChatGPT, Netflix, Canva, Adobe, Spotify, VPN et plus de 100 outils en abonnement 100% privé. Prix en Ariary, livraison en 1h à 24h via Facebook.">
+  <meta property="og:title" content="GoldenAccess — Abonnements premium 100% privés">
+  <meta property="og:description" content="Plus de 100 outils (IA, streaming, design, VPN, bureautique) à prix Ariary. Livraison 1h à 24h.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C9A227'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia' font-weight='700' text-anchor='middle' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="GoldenAccess — Accueil">
+        <span class="brand-mark"><i class="fa-solid fa-crown"></i></span>
+        Golden<em>Access</em>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="active">Outils</a>
+        <a href="paiement.html">Paiement &amp; contact</a>
+        <a href="https://www.facebook.com/profile.php?id=61594399318538" target="_blank" rel="noopener" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> Commander</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Comptes 100% privés · Livraison 1h à 24h</span>
+        <h1>Vos abonnements <span>premium</span>, au prix juste</h1>
+        <p class="lead">IA, streaming, design, VPN, bureautique… GoldenAccess vous donne accès à plus de 100 outils en abonnement 100% privé, payables en Ariary. Contactez-nous sur Facebook, recevez votre accès en 1h à 24h.</p>
+        <div class="hero-actions">
+          <a href="#tools-section" class="btn btn-gold"><i class="fa-solid fa-magnifying-glass"></i> Parcourir les outils</a>
+          <a href="https://www.facebook.com/profile.php?id=61594399318538" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-facebook"></i> Page Facebook GoldenAccess</a>
+        </div>
+        <div class="hero-perks">
+          <div class="perk"><i class="fa-solid fa-lock"></i> <span><strong>100% privé</strong> — votre compte, rien qu'à vous</span></div>
+          <div class="perk"><i class="fa-solid fa-bolt"></i> <span><strong>1h à 24h</strong> — délai de livraison</span></div>
+          <div class="perk"><i class="fa-solid fa-coins"></i> <span><strong>Prix en Ariary</strong> — sans surprise</span></div>
+          <div class="perk"><i class="fa-solid fa-layer-group"></i> <span><strong id="hero-tool-count">100+</strong> outils disponibles</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar container" id="tools-section" aria-label="Recherche et filtres">
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <label for="search-input" class="visually-hidden">Rechercher un outil</label>
+        <input type="search" id="search-input" placeholder="Rechercher un outil (ChatGPT, Netflix, Canva…)" autocomplete="off">
+        <button type="button" id="search-clear" aria-label="Effacer la recherche"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="category-filters" id="category-filters" role="group" aria-label="Filtrer par catégorie"></div>
+      <div class="results-bar">
+        <p class="results-count" id="results-count"></p>
+        <div class="results-sort">
+          <label for="sort-select" class="visually-hidden">Trier</label>
+          <select id="sort-select">
+            <option value="name">Trier : A → Z</option>
+            <option value="price-asc">Prix le plus bas</option>
+            <option value="price-desc">Prix le plus élevé</option>
+            <option value="category">Par catégorie</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Liste des outils">
+      <div class="tools-grid" id="tools-grid"></div>
+    </section>
+
+    <section class="section" id="payment-section" style="background:#fff;border-top:1px solid var(--line)">
+      <div class="container">
+        <h2 class="section-title">Comment commander ?</h2>
+        <p class="section-sub">Pas de formulaire compliqué : tout se passe sur la page Facebook GoldenAccess, en quelques messages.</p>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3>Choisissez votre outil</h3>
+            <p>Parcourez les blocs ci-dessus, ouvrez la page de l'outil et repérez le plan et la durée qui vous conviennent.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3>Contactez-nous sur Facebook</h3>
+            <p>Envoyez le nom de l'outil, le plan et la durée souhaités — ou simplement une capture d'écran du tableau de prix.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3>Confirmez la disponibilité</h3>
+            <p>Nous vérifions la disponibilité et vous indiquons les moyens de paiement acceptés (Mobile Money, etc.).</p>
+          </article>
+          <article class="step">
+            <div class="step-num">4</div>
+            <h3>Recevez votre accès</h3>
+            <p>Livraison de votre abonnement 100% privé environ 1h à 24h après le contact.</p>
+          </article>
+        </div>
+        <div class="payment-cta">
+          <a href="paiement.html" class="btn btn-outline"><i class="fa-solid fa-circle-info"></i> Tout savoir sur le paiement</a>
+          &nbsp;
+          <a href="https://www.facebook.com/profile.php?id=61594399318538" target="_blank" rel="noopener" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> Écrire à GoldenAccess</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <a href="index.html" class="brand"><span class="brand-mark"><i class="fa-solid fa-crown"></i></span> Golden<em>Access</em></a>
+        <p>Abonnements premium 100% privés, prix en Ariary, livraison en 1h à 24h. Commandez directement via notre page Facebook.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Tous les outils</a></li>
+          <li><a href="paiement.html">Paiement &amp; contact</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61594399318538" target="_blank" rel="noopener">Page Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Catégories populaires</h4>
+        <ul id="footer-categories"></ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> GoldenAccess — Tous droits réservés. Les logos et marques appartiennent à leurs propriétaires respectifs.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
