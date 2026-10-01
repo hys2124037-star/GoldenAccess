@@ -90,13 +90,11 @@
   // ---- Carte outil ----
   function cardHtml(t) {
     const best = t.best;
-    const outOfStock = t.notes && t.notes.toLowerCase().includes('rupture');
     return '<article class="tool-card" id="tool-' + t.slug + '">' +
       '<div class="tool-card-head">' + GAUI.logoHtml(t) +
         '<div class="tool-meta"><div class="tool-category">' + esc(t.category) + '</div>' +
         '<h3 class="tool-name">' + esc(t.name) + '</h3></div></div>' +
       '<span class="badge-private"><i class="fa-solid fa-lock"></i> 100% Privée</span>' +
-      (outOfStock ? '<span class="badge-out-of-stock"><i class="fa-solid fa-circle-exclamation"></i> ' + esc(t.notes) + '</span>' : '') +
       '<div class="tool-offer">' +
         '<div class="tool-offer-label">Offre avantageuse</div>' +
         '<div class="tool-offer-price">' + GA.formatAr(best.price) + '</div>' +
