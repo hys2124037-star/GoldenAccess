@@ -17,6 +17,8 @@
     return;
   }
 
+  const toolHasOutOfStock = !!(tool.notes && /rupture/i.test(tool.notes));
+
   // ---- SEO ----
   document.title = tool.name + ' — Plans, durées et prix en Ariary | GoldenAccess';
   const meta = document.getElementById('meta-description');
@@ -34,16 +36,19 @@
 
     let row = '<tr><td class="sub-name">' + esc(tool.name) + ' — ' + esc(plan.name) + '<small>' + plan.cells.length + (plan.cells.length > 1 ? ' durées disponibles' : ' durée disponible') + '</small></td>';
     plan.cells.forEach(function (c) {
+      const noteTag = c.notes && /rupture/i.test(c.notes) ? '<span class="out-of-stock-tag"><i class="fa-solid fa-circle-exclamation"></i> ' + esc(c.notes) + '</span>' : '';
       row += '<td class="price' + (c === bestCell ? ' best' : '') + '">' + GA.formatAr(c.price) +
-        (c === bestCell ? '<span class="best-tag"><i class="fa-solid fa-star"></i> Offre avantageuse</span>' : '') + '</td>';
+        (c === bestCell ? '<span class="best-tag"><i class="fa-solid fa-star"></i> Offre avantageuse</span>' : '') +
+        (noteTag ? noteTag : '') + '</td>';
     });
     row += '</tr>';
 
     // Version mobile : liste durée → prix
     let list = '<div class="plan-list-sub">Abonnement : <strong>' + esc(tool.name) + ' — ' + esc(plan.name) + '</strong></div><ul class="plan-list">';
     plan.cells.forEach(function (c) {
+      const noteTag = c.notes && /rupture/i.test(c.notes) ? '<span class="out-of-stock-tag"><i class="fa-solid fa-circle-exclamation"></i> ' + esc(c.notes) + '</span>' : '';
       list += '<li><span class="dur"><i class="fa-regular fa-clock" style="color:var(--gold);margin-right:.4rem"></i>' + esc(c.duration.label) + '</span>' +
-        '<span class="price">' + GA.formatAr(c.price) + (c === bestCell ? '<span class="best-tag">★ Avantageux</span>' : '') + '</span></li>';
+        '<span class="price">' + GA.formatAr(c.price) + (c === bestCell ? '<span class="best-tag">★ Avantageux</span>' : '') + (noteTag ? noteTag : '') + '</span></li>';
     });
     list += '</ul>';
 
@@ -64,6 +69,7 @@
       '<div class="tool-hero-card">' + GAUI.logoHtml(tool) +
         '<div class="tool-hero-info"><div class="tool-category">' + esc(tool.category) + '</div><h1>' + esc(tool.name) + '</h1>' +
           '<div class="tool-hero-tags"><span class="badge-private"><i class="fa-solid fa-lock"></i> 100% Privée</span>' +
+          (toolHasOutOfStock ? '<span class="badge-out-of-stock"><i class="fa-solid fa-circle-exclamation"></i> ' + esc(tool.notes) + '</span>' : '') +
           '<span class="tag"><i class="fa-solid fa-layer-group"></i> ' + tool.plans.length + (tool.plans.length > 1 ? ' plans' : ' plan') + '</span>' +
           '<span class="tag"><i class="fa-regular fa-clock"></i> ' + durationsAll.join(' · ') + '</span>' +
           '<span class="tag"><i class="fa-solid fa-bolt"></i> Livraison 1h à 24h</span></div></div>' +
