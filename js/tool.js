@@ -17,8 +17,6 @@
     return;
   }
 
-  const toolHasOutOfStock = !!(tool.notes && /rupture/i.test(tool.notes));
-
   // ---- SEO ----
   document.title = tool.name + ' — Plans, durées et prix en Ariary | GoldenAccess';
   const meta = document.getElementById('meta-description');
@@ -69,7 +67,6 @@
       '<div class="tool-hero-card">' + GAUI.logoHtml(tool) +
         '<div class="tool-hero-info"><div class="tool-category">' + esc(tool.category) + '</div><h1>' + esc(tool.name) + '</h1>' +
           '<div class="tool-hero-tags"><span class="badge-private"><i class="fa-solid fa-lock"></i> 100% Privée</span>' +
-          (toolHasOutOfStock ? '<span class="badge-out-of-stock"><i class="fa-solid fa-circle-exclamation"></i> ' + esc(tool.notes) + '</span>' : '') +
           '<span class="tag"><i class="fa-solid fa-layer-group"></i> ' + tool.plans.length + (tool.plans.length > 1 ? ' plans' : ' plan') + '</span>' +
           '<span class="tag"><i class="fa-regular fa-clock"></i> ' + durationsAll.join(' · ') + '</span>' +
           '<span class="tag"><i class="fa-solid fa-bolt"></i> Livraison 1h à 24h</span></div></div>' +
