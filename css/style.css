@@ -13,6 +13,7 @@
   --bg: #FDFBF6;
   --card: #FFFFFF;
   --success: #2E7D32;
+  --danger: #D32F2F;
   --radius: 16px;
   --shadow: 0 6px 24px rgba(120, 95, 20, 0.08);
   --shadow-hover: 0 14px 34px rgba(120, 95, 20, 0.16);
@@ -164,6 +165,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; margin: 0; lin
   display: inline-flex; align-items: center; gap: .35rem; background: var(--gold-pale); color: var(--gold-dark);
   border: 1px solid var(--gold-light); padding: .25rem .65rem; border-radius: 999px; font-size: .75rem; font-weight: 700; width: fit-content;
 }
+
+/* Badge de rupture de stock et notes */
+.badge-out-of-stock {
+  display: inline-flex; align-items: center; gap: .35rem; background: #FFEBEE; color: var(--danger);
+  border: 1px solid #EF5350; padding: .3rem .7rem; border-radius: 999px; font-size: .7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; width: fit-content;
+}
+
 .tool-offer { background: var(--gold-pale); border-radius: 12px; padding: .8rem .95rem; border: 1px dashed var(--gold-light); }
 .tool-offer-label { font-size: .78rem; color: var(--gold-dark); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
 .tool-offer-price { font-size: 1.35rem; font-weight: 700; color: var(--ink); font-family: 'Playfair Display', serif; }
@@ -221,10 +230,13 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; margin: 0; lin
 .plan-table tbody tr:last-child td { border-bottom: 0; }
 .plan-table .sub-name { font-weight: 600; color: var(--ink); }
 .plan-table .sub-name small { display: block; color: var(--muted); font-weight: 400; font-size: .8rem; }
-.plan-table .price { font-weight: 700; color: var(--gold-dark); font-size: 1.05rem; white-space: nowrap; }
+.plan-table .price { font-weight: 700; color: var(--gold-dark); font-size: 1.05rem; white-space: nowrap; position: relative; }
 .plan-table .price.best { position: relative; }
 .plan-table .price .best-tag {
   display: block; font-size: .68rem; font-weight: 700; color: var(--success); text-transform: uppercase; letter-spacing: .04em; margin-top: .15rem;
+}
+.plan-table .price .out-of-stock-tag {
+  display: block; font-size: .68rem; font-weight: 700; color: var(--danger); text-transform: uppercase; letter-spacing: .04em; margin-top: .15rem;
 }
 
 /* Liste mobile (générée en parallèle du tableau) */
@@ -234,6 +246,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; margin: 0; lin
 .plan-list .dur { color: var(--ink-soft); font-weight: 500; }
 .plan-list .price { font-weight: 700; color: var(--gold-dark); }
 .plan-list .price .best-tag { display: inline-block; margin-left: .4rem; font-size: .68rem; color: var(--success); font-weight: 700; text-transform: uppercase; }
+.plan-list .price .out-of-stock-tag { display: inline-block; margin-left: .4rem; font-size: .68rem; color: var(--danger); font-weight: 700; text-transform: uppercase; }
 .plan-list-sub { padding: .8rem 1.25rem; font-size: .85rem; color: var(--muted); background: #fff; border-bottom: 1px solid var(--line); }
 .plan-list-sub strong { color: var(--ink); }
 
@@ -252,12 +265,12 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; margin: 0; lin
 .page-head p { color: var(--ink-soft); max-width: 62ch; margin: 0 auto; font-size: 1.05rem; }
 .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 2rem 0; }
 .info-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow); }
-.info-card .icon { width: 48px; height: 48px; border-radius: 14px; background: var(--gold-pale); color: var(--gold-dark); display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 1rem; border: 1px solid var(--gold-light); }
+.info-card .icon { width: 48px; height: 48px; border-radius: 14px; background: var(--gold-pale); color: var(--gold-dark); display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 1rem; }
 .info-card h2 { font-size: 1.2rem; margin-bottom: .5rem; }
 .info-card p, .info-card li { color: var(--ink-soft); font-size: .95rem; }
 .info-card ul { padding-left: 1.2rem; margin: .5rem 0 0; }
 .info-card ul li { margin-bottom: .3rem; }
-.message-example { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; font-size: .92rem; color: var(--ink-soft); margin-top: 1rem; font-style: italic; }
+.message-example { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; font-size: .92rem; color: var(--ink-soft); margin-top: 1rem; }
 .message-example strong { color: var(--ink); font-style: normal; }
 .fb-cta { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 2.5rem 1.5rem; box-shadow: var(--shadow); margin-bottom: 3rem; }
 .fb-cta h2 { font-size: 1.6rem; margin-bottom: .6rem; }
