@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav-search.css">
 </head>
 <body>
   <header class="site-header">
@@ -21,6 +22,11 @@
       <nav class="main-nav" aria-label="Navigation principale">
         <a href="index.html">Outils</a>
         <a href="paiement.html">Paiement &amp; contact</a>
+        <form class="nav-search" role="search" action="index.html#tools-section" method="get">
+          <label class="visually-hidden" for="header-search">Rechercher un outil</label>
+          <input type="search" id="header-search" name="q" placeholder="Rechercher un outil…" autocomplete="off">
+          <button type="submit" aria-label="Lancer la recherche"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+        </form>
         <a href="https://www.facebook.com/profile.php?id=61594399318538" target="_blank" rel="noopener" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> Commander</a>
       </nav>
     </div>

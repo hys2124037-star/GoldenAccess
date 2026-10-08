@@ -50,6 +50,9 @@
   document.addEventListener('DOMContentLoaded', function () {
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
+    const headerSearch = document.getElementById('header-search');
+    const searchTerm = new URLSearchParams(window.location.search).get('q');
+    if (headerSearch && searchTerm) headerSearch.value = searchTerm;
     renderFooterCategories();
   });
 
